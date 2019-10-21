@@ -42,6 +42,9 @@
           <li class="nav-item">
             <a class="nav-link" href="index.php">Main Page</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Pc-Games/new_games.php">New PC games</a>
+          </li>
         </ul>
       </div>
     </div>
