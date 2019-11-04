@@ -1,37 +1,31 @@
 <?php
-include ("conn_db.php");  
+include "conn_db.php";  
 $msg="";
 if(isset($_POST['Submit'])){
   $image = $_FILES['image']['name'];
-  $password=$_POST['password'];
   $name=$_POST['name'];
-  $username=$_POST['username'];
-  $mobile=$_POST['mob'];
-  $email=$_POST['email'];
+  $date=$_POST['date'];
+  $price=$_POST['price'];
+  $desc=$_POST['desc'];
+
   
   $Name=mysqli_real_escape_string($con,$name);
-  $Date=mysqli_real_escape_string($con,$username);
-  $password=mysqli_real_escape_string($con,$password);
-  $email=mysqli_real_escape_string($con,$email);
-  $mobile=mysqli_real_escape_string($con,$mobile);
+  $Date=mysqli_real_escape_string($con,$date);
+  $Price=mysqli_real_escape_string($con,$price);
 
-  $target = "profile_pic/".basename($_FILES['image']['name']);
-  $inserting_into_games="INSERT INTO cus_register(name,username,password,mobile_no,email,pro_pic)VALUES('$name','$username','$password',$mobile,'$email','$image')";
+  $target = "new_games/".basename($_FILES['image']['name']);
+  $inserting_into_games="INSERT INTO games(game_name,game_price,release_date,image)VALUES('$Name','$Price','$Date','$image')";
   $result_for_insert=mysqli_query($con,$inserting_into_games);
-  if($result_for_insert){
+
     if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
       $msg = "Image uploaded successfully";
-      header("Location: login.php");
     }else{
       $msg = "Failed to upload image";
     }
-    
-  }
-
-    
-       
+    header("Location: admin_game_register.php");   
 }
 ?>
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -63,57 +57,46 @@ if(isset($_POST['Submit'])){
       </div>
     </div>
   </nav>
-<form action="register.php" method="post" enctype="multipart/form-data">
+<form  action="admin_game_register.php" method="post"enctype="multipart/form-data">
   <label>
-  	<label>
-    <p class="label-txt">ENTER YOUR NAME</p>
+    <p class="label-txt">Enter Name of Game</p>
     <input type="text" class="input" name="name">
     <div class="line-box">
       <div class="line"></div>
     </div>
   </label>
   <label>
-    <p class="label-txt">ENTER YOUR USER NAME</p>
-    <input type="text" class="input" name="username">
+    <label>
+    <p class="label-txt">Release Date</p>
+    <input type="text" class="input" name="date">
     <div class="line-box">
       <div class="line"></div>
     </div>
   </label>
   <label>
-    <p class="label-txt">ENTER YOUR PASSWORD</p>
-    <input type="PASSWORD" class="input" name="password">
-    <div class="line-box">
-      <div class="line"></div>
-    </div>
-  </label>
-   <label>
-    <p class="label-txt">CONFIRM YOUR PASSWORD</p>
-    <input type="PASSWORD" class="input">
-    <div class="line-box">
-      <div class="line"></div>
-    </div>
-  </label>
-   <label>
-    <p class="label-txt">ENTER YOUR MOBILE NUMBER</p>
-    <input type="text" class="input" name="mob">
+    <p class="label-txt">Enter Price</p>
+    <input type="text" class="input" name="price">
     <div class="line-box">
       <div class="line"></div>
     </div>
   </label>
   <label>
-    <p class="label-txt">ENTER YOUR EMAIL</p>
-    <input type="EMAIL" class="input" name="email">
+    <p class="label-txt">Enter Description</p>
+    <textarea rows="4" cols="50" name="desc"></textarea>
     <div class="line-box">
       <div class="line"></div>
     </div>
+  
+</div>
   </label>
    <label>
-    <p class="label-txt">Got a profile pic?</p>
-    <input type="file" class="input" name="image">
+    <p class="label-txt">Upload Image</p>
+    <input type="file" name="image">
     <div class="line-box">
       <div class="line"></div>
     </div>
   </label>
+   
 
   <button type="submit" name="Submit">submit</button>
 </form>

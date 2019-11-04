@@ -20,7 +20,7 @@ if(isset($_POST['Submit'])){
     }else{
       $msg = "Failed to upload image";
     }
-    //header("Location: post.php");   
+    header("Location: admin_game_register.php");   
 }
 ?>
 
@@ -55,7 +55,7 @@ if(isset($_POST['Submit'])){
       </div>
     </div>
   </nav>
-<form  action="admin_book_register.php" method="post"enctype="multipart/form-data">
+<form  action="admin_game_register.php" method="post"enctype="multipart/form-data">
   <label>
     <p class="label-txt">Enter Name of Game</p>
     <input type="text" class="input" name="name">

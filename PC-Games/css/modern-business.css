@@ -5,6 +5,8 @@
  */
 body {
   padding-top: 56px;
+  left: 500px;
+  background-color: #ffff;
 }
 
 .carousel-item {

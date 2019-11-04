@@ -1,11 +1,35 @@
+<?php
+include "conn_db.php";
+if(isset($_POST["submit"])){
+	$username=$_POST['username'];
+	$password=$_POST['password'];
+
+	$username=mysqli_real_escape_string($con,$username);
+  	$password=mysqli_real_escape_string($con,$password);
+
+  	 $query= "SELECT * FROM admin_login where username='$username' and password = '$password'";
+  	 $result1=mysqli_query($con,$query);
+
+  	 if(mysqli_num_rows($result1) == 1)
+  	 {
+        $row = mysqli_fetch_assoc($result1);     
+ 		header('location:PC-Games/new_games.php');
+ 	 } 
+    else     
+         echo"<script>alert('wrong username or password');</script>";   
+	}
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-<!DOCTYPE html>
-<html>
-<head>
+
 	<title>Login Page</title>
    <!--Made with love by Mutiullah Samim -->
    
@@ -24,42 +48,27 @@
 		<div class="card">
 			<div class="card-header">
 				<h3>Sign In</h3>
-				<div class="d-flex justify-content-end social_icon">
-					<span><i class="fab fa-facebook-square"></i></span>
-					<span><i class="fab fa-google-plus-square"></i></span>
-					<span><i class="fab fa-twitter-square"></i></span>
-				</div>
 			</div>
 			<div class="card-body">
-				<form>
+				<form  method="post">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="username">
+						<input type="text" name="username" class="form-control"placeholder="username">
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="password">
+						<input type="password" name="password" class="form-control" placeholder="password">
 					</div>
-					<div class="row align-items-center remember">
-						<input type="checkbox">Remember Me
-					</div>
+		
 					<div class="form-group">
-						<input type="submit" value="Login" class="btn float-right login_btn">
+						<input type="submit" name="submit" class="btn float-right login_btn">
 					</div>
 				</form>
-			</div>
-			<div class="card-footer">
-				<div class="d-flex justify-content-center links">
-					Don't have an account?<a href="#">Sign Up</a>
-				</div>
-				<div class="d-flex justify-content-center">
-					<a href="#">Forgot your password?</a>
-				</div>
 			</div>
 		</div>
 	</div>
