@@ -1,10 +1,5 @@
 <?php 
-include "conn_db.php";
-session_start();
-$id=$_SESSION['id'];
-$query="SELECT * FROM cus_register WHERE uid='$id'";
-$result=mysqli_query($con,$query);
-$row = mysqli_fetch_object($result);
+include "profile_ac.php";
  ?>
 <!DOCTYPE html>
 <html>
@@ -78,7 +73,7 @@ $row = mysqli_fetch_object($result);
                         <div class="profile-work">
                             <p>WORK LINK</p>
                             <a href="">Orders</a><br/>
-                            <a href="">Sell</a><br/>
+                            <a href="register.php">Sell</a><br/>
                             <a href="">Offers</a>
                             <a href="login.php">LogOut</a>
                             <?php

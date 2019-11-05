@@ -1,5 +1,7 @@
 <?php
-include "conn_db.php";  
+include "conn_db.php";
+session_start();
+$id=$_SESSION['id'];  
 $msg="";
 if(isset($_POST['Submit'])){
   $Name=$_POST['name'];
@@ -15,7 +17,7 @@ if(isset($_POST['Submit'])){
   $Desc=mysqli_real_escape_string($con,$Desc);
 
   $target = "old_games/".basename($_FILES['image']['name']);
-  $insert="INSERT INTO resell(game_name,game_price,game_description,date_of_purchase,image)VALUES('$Name','$Price','$Desc','$Date','$Image')";
+  $insert="INSERT INTO resell(uid,game_name,game_price,game_description,date_of_purchase,image)VALUES('$id','$Name','$Price','$Desc','$Date','$Image')";
   $result_for_insert=mysqli_query($con,$insert);
   if($result_for_insert){
     if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
