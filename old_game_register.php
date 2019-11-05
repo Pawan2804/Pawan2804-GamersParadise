@@ -1,30 +1,4 @@
-<?php
-include "conn_db.php";  
-$msg="";
-if(isset($_POST['Submit'])){
-  $image = $_FILES['image']['name'];
-  $name=$_POST['name'];
-  $date=$_POST['date'];
-  $price=$_POST['price'];
-  $desc=$_POST['desc'];
-
-  
-  $Name=mysqli_real_escape_string($con,$name);
-  $Date=mysqli_real_escape_string($con,$date);
-  $Price=mysqli_real_escape_string($con,$price);
-
-  $target = "new_games/".basename($_FILES['image']['name']);
-  $inserting_into_games="INSERT INTO games(game_name,game_price,release_date,image)VALUES('$Name','$Price','$Date','$image')";
-  $result_for_insert=mysqli_query($con,$inserting_into_games);
-
-    if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-      $msg = "Image uploaded successfully";
-    }else{
-      $msg = "Failed to upload image";
-    }
-    header("Location: admin_game_register.php");   
-}
-?>
+<?php include "resell_ac.php"; ?>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -57,7 +31,7 @@ if(isset($_POST['Submit'])){
       </div>
     </div>
   </nav>
-<form  action="admin_game_register.php" method="post"enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data">
   <label>
     <p class="label-txt">Enter Name of Game</p>
     <input type="text" class="input" name="name">
@@ -67,7 +41,7 @@ if(isset($_POST['Submit'])){
   </label>
   <label>
     <label>
-    <p class="label-txt">Release Date</p>
+    <p class="label-txt">Purchase Date</p>
     <input type="text" class="input" name="date">
     <div class="line-box">
       <div class="line"></div>
@@ -96,7 +70,5 @@ if(isset($_POST['Submit'])){
       <div class="line"></div>
     </div>
   </label>
-   
-
   <button type="submit" name="Submit">submit</button>
 </form>

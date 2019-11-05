@@ -59,33 +59,19 @@ if(isset($_POST['Submit'])){
   <label>
     <p class="label-txt">Enter Name of Game</p>
     <input type="text" class="input" name="name">
-    <div class="line-box">
-      <div class="line"></div>
-    </div>
   </label>
   <label>
   	<label>
     <p class="label-txt">Release Date</p>
     <input type="text" class="input" name="date">
-    <div class="line-box">
-      <div class="line"></div>
-    </div>
   </label>
   <label>
     <p class="label-txt">Enter Price</p>
     <input type="text" class="input" name="price">
-    <div class="line-box">
-      <div class="line"></div>
-    </div>
   </label>
    <label>
     <p class="label-txt">Upload Image</p>
     <input type="file" name="image">
-    <div class="line-box">
-      <div class="line"></div>
-    </div>
   </label>
-   
-
   <button type="submit" name="Submit">submit</button>
 </form>
