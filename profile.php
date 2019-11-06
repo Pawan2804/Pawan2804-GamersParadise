@@ -1,6 +1,9 @@
 <?php 
 include "profile_ac.php";
- ?>
+echo session_status();
+if($id!=0){
+   ?> 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,10 +78,8 @@ include "profile_ac.php";
                             <a href="">Orders</a><br/>
                             <a href="register.php">Sell</a><br/>
                             <a href="">Offers</a>
-                            <a href="login.php">LogOut</a>
-                            <?php
-                                session_destroy();
-                            ?>
+                            <a href="log_out.php">LogOut</a>
+                            
                             
                         </div>
                     </div>
@@ -127,3 +128,8 @@ include "profile_ac.php";
             </form>           
         </body>
 </html>
+<?php
+}
+else
+header("Location: login.php");
+?>

@@ -41,7 +41,7 @@
         <a class="js-scroll-trigger" href="PC-Games/new_games.php">New PC games</a>
       </li>
       <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="PC-Games/register.php">Used PC games</a>
+        <a class="js-scroll-trigger" href="PC-Games/old_games.php">Used PC games</a>
       </li>
       <li class="sidebar-nav-item">
         <a class="js-scroll-trigger" href="contact.php">Contact</a>

@@ -24,6 +24,42 @@ include "admin_login_ac.php"
 	<link rel="stylesheet" type="text/css" href="css/admin_login.css">
 </head>
 <body>
+	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.php">Gamer's Paradise</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+        	<li class="nav-item">
+            <a class="nav-link" href="index.php">Main Page</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="register.php">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.php">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Pc-Games/new_games.php">New PC games</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Pc-Games/old_games.php">Old PC games</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.php">Your Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.php">Your Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="admin_game_register.php">Game register</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">

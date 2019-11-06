@@ -1,12 +1,18 @@
+<?php 
+include "conn_db.php";
+$g=($_GET['name1']);
+$query="UPDATE resell SET verified='y' WHERE game_name='$g'";
+$result1=mysqli_query($con,$query);
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
   <title>Buy All The Games You Want</title>
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/modern-business.css">
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="PC-games/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="PC-games/css/modern-business.css">
+    <script src="PC-games/vendor/jquery/jquery.min.js"></script>
+    <script src="PC-games/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <style type="text/css">
       img.card-img-top{
           width: 100%;
@@ -29,20 +35,21 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="../register.php">Register</a>
+            <a class="nav-link" href="register.php">Register</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../login.php">Login</a>
+            <a class="nav-link" href="login.php">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../contact.php">Contact</a>
+            <a class="nav-link" href="contact.php">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../index.php">Main Page</a>
+            <a class="nav-link" href="index.php">Main Page</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="old_games.php">Old games</a>
+            <a class="nav-link" href="PC-games/old_games.php">Old games</a>
           </li>
+      
         </ul>
       </div>
     </div>
@@ -57,21 +64,21 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active" style="background-image: url('img/elder.jpg')">
+        <div class="carousel-item active" style="background-image: url('PC-Games/img/elder.jpg')">
           <div class="carousel-caption d-none d-md-block">
             <h3>Elder Srolls</h3>
             <p>Dragons fizzle but Necromancers arrive to save the day.</p>
           </div>
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('img/dark_souls.jpg')">
+        <div class="carousel-item" style="background-image: url('PC-Games/img/dark_souls.jpg')">
           <div class="carousel-caption d-none d-md-block">
             <h3>Dark Souls</h3>
             <p>The action roleplaying game makes a masterful return to Lordran</p>
           </div>
         </div>
         <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('img/dota2.jpg')">
+        <div class="carousel-item" style="background-image: url('PC-Games/img/dota2.jpg')">
           <div class="carousel-caption d-none d-md-block">
             <h3>Dota 2</h3>
             <p>The action roleplaying game makes a masterful return to Lordran</p>
@@ -101,21 +108,23 @@
         <div class="row">  
               <?php              
               include "conn_db.php";
-              $query= "SELECT * FROM resell WHERE verified='y'";
+              $query= "SELECT * FROM resell where verified='n'";
               $result=mysqli_query($con,$query);
                 if($result)
               {
                while($result1 = mysqli_fetch_object($result))
               {
+                $name=($result1->game_name);
+            
                 ?>
                 <div class="col-lg-4 col-sm-6 portfolio-item"> 
                 <div class="container"> 
                  <div class="card h-100">
                   <img class="card-img-top"
-                  <?php printf( "img src=../new_games/".$result1->image);?>> 
+                  <?php printf( "img src=old_games/".$result1->image);?>> 
                 <div class="card-body">
                <h4 class="card-title">
-                <a href="#">
+                <a href=PC-Games/game_details.php?name=<?php echo urlencode($name);?>>
               <?php printf("%s",$result1->game_name);             
             ?>
           </a>
@@ -123,8 +132,8 @@
             <h4 class="card-title">
               <?php printf("%s",$result1->game_price);?>
             </h4>
-            <p class="card-text">
-
+            <p class="card-text"></p>
+            <a href=verify.php?name1=<?php echo urlencode($name);?>><button type="submit" class="btn btn-success">Success</button></a>
             <br>        
             </div>
           </div>

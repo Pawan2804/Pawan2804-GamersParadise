@@ -17,19 +17,29 @@ include "register_ac.php";
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
+            <a class="nav-link" href="index.php">Main Page</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="register.php">Register</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="login.php">Login</a>
           </li>
+           <li class="nav-item">
+            <a class="nav-link" href="Pc-Games/new_games.php">New PC games</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Pc-Games/old_games.php">Old PC games</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="contact.php">Contact</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.php">Main Page</a>
-          </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="profile.php">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="old_game_register.php">Sell your games</a>
           </li>
         </ul>
       </div>

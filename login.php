@@ -1,5 +1,28 @@
 <?php
-include "login_ac.php";
+//include "login_ac.php";
+session_start();
+include "conn_db.php";
+if(isset($_POST['submit']))
+{
+    $username= $_POST['username'];
+    $password= $_POST['password'];
+
+    $query= "SELECT * FROM cus_register where username='$username' and password = '$password'";
+    
+    $result1=mysqli_query($con,$query);
+    if(mysqli_num_rows($result1) !=0){
+        $row = mysqli_fetch_assoc($result1);
+         $id = $row['uid'];
+        $_SESSION['id'] = $id;
+        echo($_SESSION['id']);     
+        header('location:profile.php');   
+    } 
+    else 
+    {
+         echo"<script>alert('wrong username or password');</script>";     
+    }
+    
+}
  ?>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -33,6 +56,9 @@ include "login_ac.php";
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+        	<li class="nav-item">
+            <a class="nav-link" href="index.php">Main Page</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="register.php">Register</a>
           </li>
@@ -40,13 +66,16 @@ include "login_ac.php";
             <a class="nav-link" href="login.php">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.php">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.php">Main Page</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="Pc-Games/new_games.php">New PC games</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Pc-Games/old_games.php">Old PC games</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.php">Your Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.php">Contact</a>
           </li>
         </ul>
       </div>
@@ -56,7 +85,7 @@ include "login_ac.php";
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
-				<form method="post">
+				<form method="post" action="login.php">
 				<h3>Sign In</h3>
 				<div class="d-flex justify-content-end social_icon">
 					<span><i class="fab fa-facebook-square"></i></span>
