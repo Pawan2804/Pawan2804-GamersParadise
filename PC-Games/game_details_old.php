@@ -1,14 +1,14 @@
 <?php
 include "conn_db.php";
 $Sc=$_GET['name'];
-// print($Sc);
-$query= "SELECT * FROM games WHERE game_name='$Sc'";
+$query= "SELECT * FROM resell WHERE game_name='$Sc'";
 $result=mysqli_query($con,$query);
-if($Sc!=null){
+	if($Sc!=null){
     if($result)
     {
        while($result1 = mysqli_fetch_object($result))
       {
+      	
 ?>
 <head>
   <title>Buy All The Games You Want</title>
@@ -59,7 +59,6 @@ if($Sc!=null){
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-<h2><?php printf("%s",$result1->game_name);?></h2>
 <div class="container">
     <div class="card">
         <div class="container-fliud">
@@ -80,12 +79,12 @@ if($Sc!=null){
                     <div class="panel panel-default text-center">
                         <h3><div class="panel-title"><span class="glyphicon glyphicon-list-alt"></span>   Name</div></h3>
                         <hr>
-                    <h4><?php printf("%s",$result1->game_name);?></h4>
+                    <h4><?php printf("%s ",$result1->game_name);?></h4>
                     </div>
                     <div class="panel panel-default text-center">
                             <h3><div class="panel-title"><span class="glyphicon glyphicon-scissors"></span>For trailer</div></h3>
                             <hr>
-                       <h3><?php printf("%s",$result1->release_date);?></h2>  
+                       <h3><?php printf("%s",$result1->date_of_purchase);?></h2>  
                         <br>
                     </div></h3>
                     <div class="panel panel-default text-center">
@@ -100,11 +99,11 @@ if($Sc!=null){
                     <div class="panel panel-default text-center">
                             <h3><div class="panel-title"><span class="glyphicon glyphicon-scissors"></span>  Release Date</div></h3>
                             <hr>
-                       <h3><?php printf("%s",$result1->release_date);?></h2>  
+                       <h3><?php printf("%s",$result1->date_of_purchase);?></h2>  
                         <br>
                     </div></h3>
                     <div class="text-center">
-                    	<form action="game_details.php" method="post"></form>
+                    	<form action="game_details_old.php" method="post"></form>
                         <button class="add-to-cart btn btn-default" type="button"><span class="glyphicon glyphicon-gift"></span> Buy</button>
                     </div>
                 </div>
@@ -119,5 +118,5 @@ if($Sc!=null){
 }
 }
 else
-  header('location:new_games.php');
+header('location:old_games.php');
 ?>

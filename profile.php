@@ -1,6 +1,5 @@
 <?php 
 include "profile_ac.php";
-echo session_status();
 if($id!=0){
    ?> 
 
@@ -50,7 +49,7 @@ if($id!=0){
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                        <img<?php printf( "img src= profile_pic/".$row->pro_pic);?>>
+                        <img width="300px" hieght="300px"<?php printf( "img src= profile_pic/".$row->pro_pic);?>>
                         </div>
                     </div>
                     <div class="col-md-6">

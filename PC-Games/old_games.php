@@ -16,6 +16,7 @@
         align-content: center;
       }
     </style>
+    <script>function bookmark(){this.getAttribute('href')}</script>
 </head>
 <body>
 
@@ -101,12 +102,14 @@
         <div class="row">  
               <?php              
               include "conn_db.php";
-              $query= "SELECT * FROM resell WHERE verified='y'";
+              $query= "SELECT * FROM resell";
               $result=mysqli_query($con,$query);
                 if($result)
               {
                while($result1 = mysqli_fetch_object($result))
               {
+                $name=($result1->game_name);
+            
                 ?>
                 <div class="col-lg-4 col-sm-6 portfolio-item"> 
                 <div class="container"> 
@@ -115,7 +118,7 @@
                   <?php printf( "img src=../new_games/".$result1->image);?>> 
                 <div class="card-body">
                <h4 class="card-title">
-                <a href="#">
+                <a href=game_details_old.php?name=<?php echo urlencode($name);?>>
               <?php printf("%s",$result1->game_name);             
             ?>
           </a>
