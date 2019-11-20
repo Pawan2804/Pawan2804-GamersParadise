@@ -74,9 +74,8 @@ if($id!=0){
                     <div class="col-md-4">
                         <div class="profile-work">
                             <p>WORK LINK</p>
-                            <a href="">Orders</a><br/>
+                    
                             <a href="register.php">Sell</a><br/>
-                            <a href="">Offers</a>
                             <a href="log_out.php">LogOut</a>
                             
                             
@@ -115,6 +114,16 @@ if($id!=0){
                                             </div>
                                             <div class="col-md-6">
                                                 <p><?php printf(" %s",$row->mobile_no); ?></p>
+                                            </div>
+                                            <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Orders</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <?php  while($row2=mysqli_fetch_object($result2))
+                                                 { ?>
+                                                <p><?php printf(" %s",$row2->game_name);echo("<div>"); }?></p>
+
                                             </div>
                                         </div>                                        
                                         

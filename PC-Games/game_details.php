@@ -1,14 +1,15 @@
 <?php
+session_start();
 include "conn_db.php";
 $Sc=$_GET['name'];
-// print($Sc);
 $query= "SELECT * FROM games WHERE game_name='$Sc'";
 $result=mysqli_query($con,$query);
-if($Sc!=null){
+  if($Sc!=null){
     if($result)
     {
        while($result1 = mysqli_fetch_object($result))
       {
+
 ?>
 <head>
   <title>Buy All The Games You Want</title>
@@ -26,6 +27,9 @@ if($Sc!=null){
         align-content: center;
       }
     </style>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
@@ -54,9 +58,7 @@ if($Sc!=null){
       </div>
     </div>
   </nav>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  
 <!------ Include the above in your HEAD tag ---------->
 
 <h2><?php printf("%s",$result1->game_name);?></h2>
@@ -104,9 +106,14 @@ if($Sc!=null){
                         <br>
                     </div></h3>
                     <div class="text-center">
-                    	<form action="game_details.php" method="post"></form>
-                        <button class="add-to-cart btn btn-default" type="button"><span class="glyphicon glyphicon-gift"></span> Buy</button>
+                    	<form action="buy.php">
+                         <div class="text-center">
+                        <button class="add-to-cart btn btn-default" type="submit" name="submit"><span class="glyphicon glyphicon-gift"></span><a href="buy.php?name=<?=$result1->game_name;?>&id1=<?=$result1->game_id;?>"> Buy</a></button>
+
                     </div>
+                        
+                        </form>
+                                           </div>
                 </div>
             </div>
         </div>
@@ -118,6 +125,4 @@ if($Sc!=null){
 }
 }
 }
-else
-  header('location:new_games.php');
 ?>

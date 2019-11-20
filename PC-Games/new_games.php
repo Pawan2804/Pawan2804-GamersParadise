@@ -1,4 +1,6 @@
+<?php  session_start();?>
 <!DOCTYPE html>
+
 <html>
 <head>
   <title>Buy All The Games You Want</title>
@@ -100,7 +102,9 @@
   }
 </style>
         <div class="row">  
-              <?php              
+              <?php   
+            
+                         
               include "conn_db.php";
               $query= "SELECT * FROM games";
               $result=mysqli_query($con,$query);
@@ -109,6 +113,8 @@
                while($result1 = mysqli_fetch_object($result))
               {
                 $name=($result1->game_name);
+                $_SESSION['name1'] = $name; 
+               // print($_SESSION['name1']);
             
                 ?>
                 <div class="col-lg-4 col-sm-6 portfolio-item"> 
