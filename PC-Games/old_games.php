@@ -102,7 +102,7 @@
         <div class="row">  
               <?php              
               include "conn_db.php";
-              $query= "SELECT * FROM resell";
+              $query= "SELECT * FROM resell where verified='y'";
               $result=mysqli_query($con,$query);
                 if($result)
               {
@@ -118,16 +118,24 @@
                   <?php printf( "img src=../new_games/".$result1->image);?>> 
                 <div class="card-body">
                <h4 class="card-title">
-                <a href=game_details_old.php?name=<?php echo urlencode($name);?>>
-              <?php printf("%s",$result1->game_name);             
-            ?>
+                        
           </a>
             </h4>
             <h4 class="card-title">
-              <?php printf("%s",$result1->game_price);?>
+              <?php printf("MRP:- ₹%s",$result1->game_price);?>
             </h4>
-            <p class="card-text">
-
+            <h4 class="card-title">
+                 <a href=game_details_old.php?game=old&name=<?php echo urlencode($name);?>>
+              <?php printf("%s",$result1->game_name);          
+            ?>            
+          </a>
+            </h4>
+             <h5>
+            <?php printf("Release Date-%s",$result1->release_date);  
+            $pop=""      
+            ?>
+            </h5>
+            <button type="button" class="btn btn-warning"><a href=game_details_old.php?name=<?php echo urlencode($name);?>>View Deal</button></a>
             <br>        
             </div>
           </div>
@@ -142,7 +150,7 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+      <p class="m-0 text-center text-white">Copyright &copy; Gamer's Paradise 2019</p>
     </div>
     <!-- /.container -->
   </footer>

@@ -12,7 +12,7 @@ if(isset($_POST["submit"])){
   	 if(mysqli_num_rows($result1) == 1)
   	 {
         $row = mysqli_fetch_assoc($result1);     
- 		header('location:PC-Games/new_games.php');
+ 		header('location:verify.php');
  	 } 
     else     
          echo"<script>alert('wrong username or password');</script>";   

@@ -84,7 +84,7 @@ $result=mysqli_query($con,$query);
                     <div class="panel panel-default text-center">
                             <h3><div class="panel-title"><span class="glyphicon glyphicon-scissors"></span>For trailer</div></h3>
                             <hr>
-                       <h3><?php printf("%s",$result1->date_of_purchase);?></h2>  
+                       <h3><?php printf("%s",$result1->release_date);?></h2>  
                         <br>
                     </div></h3>
                     <div class="panel panel-default text-center">
@@ -99,12 +99,12 @@ $result=mysqli_query($con,$query);
                     <div class="panel panel-default text-center">
                             <h3><div class="panel-title"><span class="glyphicon glyphicon-scissors"></span>  Release Date</div></h3>
                             <hr>
-                       <h3><?php printf("%s",$result1->date_of_purchase);?></h2>  
+                       <h3><?php printf("%s",$result1->release_date);?></h2>  
                         <br>
                     </div></h3>
                     <div class="text-center">
                     	<form action="game_details_old.php" method="post"></form>
-                        <button class="add-to-cart btn btn-default" type="button"><span class="glyphicon glyphicon-gift"></span> Buy</button>
+                        <button class="add-to-cart btn btn-default" type="button"><span class="glyphicon glyphicon-gift"></span><a href="buy.php?name=<?=$result1->game_name;?>&id1=<?=$result1->game_id;?>"> Buy</button>
                     </div>
                 </div>
             </div>

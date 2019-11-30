@@ -1,5 +1,5 @@
 <?php
-include "register_ac.php";
+//include "register_ac.php";
 ?>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -45,7 +45,7 @@ include "register_ac.php";
       </div>
     </div>
   </nav>
-<form action="register.php" method="post" enctype="multipart/form-data">
+<form action="register_ac.php" method="post" enctype="multipart/form-data">
   <label>
   	<label>
     <p class="label-txt">ENTER YOUR NAME</p>

@@ -23,6 +23,12 @@ $result=mysqli_query($con,$query);
           width: 100%;
           height: 100%;
       }
+      div.i{
+        width: 300px;
+        padding-top: 40px;
+        padding-left: 30px;
+        margin: 10px;
+      }
       .me{
         align-content: center;
       }
@@ -60,8 +66,6 @@ $result=mysqli_query($con,$query);
   </nav>
   
 <!------ Include the above in your HEAD tag ---------->
-
-<h2><?php printf("%s",$result1->game_name);?></h2>
 <div class="container">
     <div class="card">
         <div class="container-fliud">
@@ -69,27 +73,25 @@ $result=mysqli_query($con,$query);
                 <div class="preview col-md-6">
 
                     <div class="preview-pic tab-content">
-                 
+                        
                         <div class="tab-pane active" id="pic-1">
+                          <div class="i">
+                          <h3 &nbsp;><?php printf("%s",$result1->game_name);?></h4>
                         	<img width="300px" height="300px" margin-left="100px"
+
                         	<?php printf( "src=../new_games/".$result1->image);?>></div>
-                        		
+                        		</div>
                         	
                     </div>
 
                 </div>
                 <div class="details col-md-6">
                     <div class="panel panel-default text-center">
-                        <h3><div class="panel-title"><span class="glyphicon glyphicon-list-alt"></span>   Name</div></h3>
+                        <h3><div class="panel-title"><span class="glyphicon glyphicon-list-alt"></span> Game Name</div></h3>
                         <hr>
                     <h4><?php printf("%s",$result1->game_name);?></h4>
                     </div>
-                    <div class="panel panel-default text-center">
-                            <h3><div class="panel-title"><span class="glyphicon glyphicon-scissors"></span>For trailer</div></h3>
-                            <hr>
-                       <h3><?php printf("%s",$result1->release_date);?></h2>  
-                        <br>
-                    </div></h3>
+              
                     <div class="panel panel-default text-center">
                         <h3><div class="panel-title"><span class="glyphicon glyphicon-comment"></span>   Description</div></h3>
                         <hr>
@@ -98,7 +100,7 @@ $result=mysqli_query($con,$query);
                     <div class="panel panel-default text-center">
                         <h3><div class="panel-title"><span class="glyphicon glyphicon-credit-card"></span>  RATE</div></h3>
                         <hr>
-                        <h2><font color="purple"><?php printf("Rs.%s",$result1->game_price);?></h2>   </font>                 </div>
+                        <h2><font color="purple"><?php printf("₹.%s",$result1->game_price);?></h2>   </font>                 </div>
                     <div class="panel panel-default text-center">
                             <h3><div class="panel-title"><span class="glyphicon glyphicon-scissors"></span>  Release Date</div></h3>
                             <hr>
@@ -108,7 +110,7 @@ $result=mysqli_query($con,$query);
                     <div class="text-center">
                     	<form action="buy.php">
                          <div class="text-center">
-                        <button class="add-to-cart btn btn-default" type="submit" name="submit"><span class="glyphicon glyphicon-gift"></span><a href="buy.php?name=<?=$result1->game_name;?>&id1=<?=$result1->game_id;?>"> Buy</a></button>
+                        <button class="btn btn-success" type="submit"><a href="buy.php?name=<?php $result1->game_name;?>&id1=<?php $result1->game_id;?>"> Buy</a></button>
 
                     </div>
                         

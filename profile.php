@@ -1,3 +1,4 @@
+
 <?php 
 include "profile_ac.php";
 if($id!=0){
@@ -114,22 +115,25 @@ if($id!=0){
                                             </div>
                                             <div class="col-md-6">
                                                 <p><?php printf(" %s",$row->mobile_no); ?></p>
+                                            </div>                                    
+                                        
+                                        </div> 
+                            </div><br><br>
+                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                             
+                                        <div class="row">
+                                            <div class="col-md-6" style="border:solid 2px black;">
+                                                <label style="height:100%;width:100%;padding-top: 40%;">Orders</label>
                                             </div>
-                                            <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Orders</label>
-                                            </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6" style="border:solid 2px black;">
+                                                
                                                 <?php  while($row2=mysqli_fetch_object($result2))
-                                                 { ?>
+                                                 { ?><hr style="border:2px dotted black">
                                                 <p><?php printf(" %s",$row2->game_name);echo("<div>"); }?></p>
 
                                             </div>
-                                        </div>                                        
-                                        
-                                        </div>
-                            </div>
-                            
+                                        </div>   
+                              </div> 
                             </div>
                         </div>
                     </div>

@@ -7,6 +7,10 @@
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/modern-business.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <style type="text/css">
@@ -17,6 +21,7 @@
       .me{
         align-content: center;
       }
+
     </style>
     <script>function bookmark(){this.getAttribute('href')}</script>
 </head>
@@ -93,8 +98,8 @@
   </header>
   <!-- Page Content -->
     
-    <h1 class="my-4">Buy From A Variety Of Games</h1>
-
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1>Buy From A Variety Of Games</h1>
+    <br>
     <!-- Portfolio Section -->
 <style type="text/css">
   .col-sm-6{
@@ -107,6 +112,7 @@
                          
               include "conn_db.php";
               $query= "SELECT * FROM games";
+
               $result=mysqli_query($con,$query);
                 if($result)
               {
@@ -123,19 +129,26 @@
                   <img class="card-img-top"
                   <?php printf( "img src=../new_games/".$result1->image);?>> 
                 <div class="card-body">
+                  <h5 class="card-title">
+                  <?php printf("MRP:- ₹%s",$result1->game_price);?>
+                  </h5>
                <h4 class="card-title">
                 <a href=game_details.php?name=<?php echo urlencode($name);?>>
-              <?php printf("%s",$result1->game_name);             
-            ?>
+              <?php printf("%s",$result1->game_name);        
+            ?>            
           </a>
             </h4>
-            <h4 class="card-title">
-              <?php printf("%s",$result1->game_price);?>
-            </h4>
-            <p class="card-text">
-
+           
+            <h5>
+            <?php printf("Release Date-%s",$result1->release_date);  
+            $pop=""      
+            ?>
+            </h5>
+            <br>
+             <button type="button" class="btn btn-warning"><a href=game_details.php?name=<?php echo urlencode($name);?>>View Deal</button></a>
             <br>        
             </div>
+
           </div>
         </div>
       
