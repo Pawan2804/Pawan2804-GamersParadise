@@ -1,21 +1,47 @@
 <?php
 session_start();
+$id=$_SESSION['id'];
 include "conn_db.php";
 $Sc=$_GET['name'];
 $query= "SELECT * FROM games WHERE game_name='$Sc'";
+
+
 $result=mysqli_query($con,$query);
   if($Sc!=null){
-    if($result)
-    {
        while($result1 = mysqli_fetch_object($result))
       {
+//         if(isset($_POST['submit'])){
+//           require 'PHPMailerAutoload.php';
+//           require 'cred.php';
+//           $mail = new PHPMailer;
+//         $mail->SMTPDebug = 1;                               // Enable verbose debug output
+//         $mail->isSMTP();                                      // Set mailer to use SMTP
+//         $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+//         $mail->SMTPAuth = true;                               // Enable SMTP authentication
+//         $mail->Username = Email;                 // SMTP username
+//         $mail->Password = Pass;                           // SMTP password
+//         $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+//         $mail->Port = 587;                                    // TCP port to connect to
+//         $mail->setFrom(Email, 'Pawan');
+//         $mail->addAddress("pawv16cs@cmrit.ac.in",);     // Add a recipient
+//         $mail->addReplyTo(Email);
+//         $mail->isHTML(true); // Set email format to HTML
+//         $mail->Subject ="YOUR ORDER COFIRMATION!!";
+//         $mail->Body    ="Thank you for Ordering from gamer's Paradise\n Your Order details:".$result1->game_name;
 
+//               //$mail->AltBody = ;
+//               if(!$mail->send()) {
+//                   echo 'Message could not be sent.';
+//                   echo 'Mailer Error: ' . $mail->ErrorInfo;
+// } 
+// }
+        
 ?>
 <head>
   <title>Buy All The Games You Want</title>
   <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="game_detail.css">
+  <link rel="stylesheet" type="text/css" href="game_detail.css">
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <style type="text/css">
@@ -77,11 +103,11 @@ $result=mysqli_query($con,$query);
                         <div class="tab-pane active" id="pic-1">
                           <div class="i">
                           <h3 &nbsp;><?php printf("%s",$result1->game_name);?></h4>
-                        	<img width="300px" height="300px" margin-left="100px"
+                          <img width="300px" height="300px" margin-left="100px"
 
-                        	<?php printf( "src=../new_games/".$result1->image);?>></div>
-                        		</div>
-                        	
+                          <?php printf( "src=../new_games/".$result1->image);?>></div>
+                            </div>
+                          
                     </div>
 
                 </div>
@@ -108,9 +134,9 @@ $result=mysqli_query($con,$query);
                         <br>
                     </div></h3>
                     <div class="text-center">
-                    	<form action="buy.php">
+                      <form method="post">
                          <div class="text-center">
-                        <button class="btn btn-success" type="submit"><a href="buy.php?name=<?php $result1->game_name;?>&id1=<?php $result1->game_id;?>"> Buy</a></button>
+                        <button class="add-to-cart btn btn-default" type="submit" name="submit"><span class="glyphicon glyphicon-gift"></span><a href="buy.php?name=<?=urlencode($result1->game_name);?>&id1=<?=$result1->game_id;?>"> Buy</button>
 
                     </div>
                         
@@ -124,7 +150,6 @@ $result=mysqli_query($con,$query);
 <br>
 <br>
 <?php
-}
 }
 }
 ?>

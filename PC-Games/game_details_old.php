@@ -1,4 +1,6 @@
 <?php
+session_start();
+$id=$_SESSION['id'];
 include "conn_db.php";
 $Sc=$_GET['name'];
 $query= "SELECT * FROM resell WHERE game_name='$Sc'";
@@ -104,7 +106,7 @@ $result=mysqli_query($con,$query);
                     </div></h3>
                     <div class="text-center">
                     	<form action="game_details_old.php" method="post"></form>
-                        <button class="add-to-cart btn btn-default" type="button"><span class="glyphicon glyphicon-gift"></span><a href="buy.php?name=<?=$result1->game_name;?>&id1=<?=$result1->game_id;?>"> Buy</button>
+                        <button class="add-to-cart btn btn-default" type="button"><span class="glyphicon glyphicon-gift"></span><a href="buy.php?name=<?=urlencode($result1->game_name);?>&id1=<?=$result1->game_id;?>"> Buy</button>
                     </div>
                 </div>
             </div>

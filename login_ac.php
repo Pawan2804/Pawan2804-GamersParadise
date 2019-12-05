@@ -12,9 +12,12 @@ if(isset($_POST['submit']))
     if(mysqli_num_rows($result1) !=0){
         $row = mysqli_fetch_assoc($result1);
          $id = $row['uid'];
+         $email=$row['email'];
         $_SESSION['id'] = $id;
-        echo($_SESSION['id']);     
-        header('location:profile.php');   
+        $_SESSION['email'] = $email;
+        echo($_SESSION['id']);
+        echo($_SESSION['email']);     
+        //header('location:profile.php');   
     } 
     else 
     {

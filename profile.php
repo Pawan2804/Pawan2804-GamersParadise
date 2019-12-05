@@ -76,7 +76,7 @@ if($id!=0){
                         <div class="profile-work">
                             <p>WORK LINK</p>
                     
-                            <a href="register.php">Sell</a><br/>
+                            <a href="old_game_register.php">Sell</a><br/>
                             <a href="log_out.php">LogOut</a>
                             
                             

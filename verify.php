@@ -1,5 +1,6 @@
-<?php 
+ <?php 
 include "conn_db.php";
+$g=($_GET['name1']);
 $query="UPDATE resell SET verified='y' WHERE game_name='$g'";
 $result1=mysqli_query($con,$query);
  ?>
