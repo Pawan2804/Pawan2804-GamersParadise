@@ -1,6 +1,9 @@
 <?php
 //include "register_ac.php";
 ?>
+<head>
+   <title>Welcome To Gamers Paradise</title>
+</head>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -98,4 +101,14 @@
   </label>
 
   <button type="submit" name="Submit">submit</button>
+</label>
 </form>
+
+
+
+<footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Gamer's Paradise 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>

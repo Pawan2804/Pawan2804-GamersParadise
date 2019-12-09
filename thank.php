@@ -1,5 +1,8 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<head>
+	 <title>Welcome To Gamers Paradise</title>
+</head>
 <div class="jumbotron text-center">
   <h1 class="display-3">Thank You!</h1>
   <p class="lead"><strong>Please check your email</strong> You will recieve your game shortly!</p>
@@ -8,4 +11,11 @@
     <a class="btn btn-primary btn-sm" href="profile.php" role="button">Continue to profile</a>
   </p>
 </div>
+
+<footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Gamer's Paradise 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
  

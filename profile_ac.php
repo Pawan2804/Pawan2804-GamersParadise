@@ -6,3 +6,6 @@ $result=mysqli_query($con,$query);
 $query2="SELECT * FROM orders2 WHERE user_id=$id";
 $result2=mysqli_query($con,$query2);
 $row = mysqli_fetch_object($result);
+$query3="SELECT COUNT(user_id) FROM orders2 WHERE user_id=$id";
+$result3=mysqli_query($con,$query3);
+$row3 = mysqli_fetch_array($result3);

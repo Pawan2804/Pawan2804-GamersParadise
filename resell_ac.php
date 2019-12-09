@@ -21,10 +21,11 @@ if(isset($_POST['Submit'])){
   if($result_for_insert){
     if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
       $msg = "Image uploaded successfully";
+      header("Location: profile.php");  
     }else{
       $msg = "Failed to upload image";
     }
-    //header("Location: profile.php");   
+     
 }
 }
 ?>

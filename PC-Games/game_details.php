@@ -9,33 +9,7 @@ $query= "SELECT * FROM games WHERE game_name='$Sc'";
 $result=mysqli_query($con,$query);
   if($Sc!=null){
        while($result1 = mysqli_fetch_object($result))
-      {
-//         if(isset($_POST['submit'])){
-//           require 'PHPMailerAutoload.php';
-//           require 'cred.php';
-//           $mail = new PHPMailer;
-//         $mail->SMTPDebug = 1;                               // Enable verbose debug output
-//         $mail->isSMTP();                                      // Set mailer to use SMTP
-//         $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-//         $mail->SMTPAuth = true;                               // Enable SMTP authentication
-//         $mail->Username = Email;                 // SMTP username
-//         $mail->Password = Pass;                           // SMTP password
-//         $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-//         $mail->Port = 587;                                    // TCP port to connect to
-//         $mail->setFrom(Email, 'Pawan');
-//         $mail->addAddress("pawv16cs@cmrit.ac.in",);     // Add a recipient
-//         $mail->addReplyTo(Email);
-//         $mail->isHTML(true); // Set email format to HTML
-//         $mail->Subject ="YOUR ORDER COFIRMATION!!";
-//         $mail->Body    ="Thank you for Ordering from gamer's Paradise\n Your Order details:".$result1->game_name;
-
-//               //$mail->AltBody = ;
-//               if(!$mail->send()) {
-//                   echo 'Message could not be sent.';
-//                   echo 'Mailer Error: ' . $mail->ErrorInfo;
-// } 
-// }
-        
+      {  
 ?>
 <head>
   <title>Buy All The Games You Want</title>
@@ -149,6 +123,12 @@ $result=mysqli_query($con,$query);
 </div>
 <br>
 <br>
+<footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Gamer's Paradise 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
 <?php
 }
 }

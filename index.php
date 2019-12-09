@@ -229,6 +229,8 @@
   <!-- Custom scripts for this template -->
   <script src="js/stylish-portfolio.min.js"></script>
 
+
+
 </body>
 
 </html>

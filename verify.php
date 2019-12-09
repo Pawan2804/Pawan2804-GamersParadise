@@ -1,8 +1,10 @@
  <?php 
 include "conn_db.php";
-$g=($_GET['name1']);
-$query="UPDATE resell SET verified='y' WHERE game_name='$g'";
+if(isset($_POST['appr'])){
+$g=($_POST['gameid']);
+$query="UPDATE resell SET verified='y' WHERE game_id='$g'";
 $result1=mysqli_query($con,$query);
+}
  ?>
 <!DOCTYPE html>
 <html>
@@ -120,8 +122,7 @@ $result1=mysqli_query($con,$query);
                 <div class="col-lg-4 col-sm-6 portfolio-item"> 
                 <div class="container"> 
                  <div class="card h-100">
-                  <img class="card-img-top"
-                  <?php printf( "img src=old_games/".$result1->image);?>> 
+                  <img width="300px" hieght="300px"<?php printf( "img src= old_games/".$result1->image);?>>
                 <div class="card-body">
                <h4 class="card-title">
                 <a href=PC-Games/game_details.php?name=<?php echo urlencode($name);?>>
@@ -133,7 +134,10 @@ $result1=mysqli_query($con,$query);
               <?php printf("%s",$result1->game_price);?>
             </h4>
             <p class="card-text"></p>
-            <a href=verify.php?name1=<?php echo urlencode($name);?>><button type="submit" class="btn btn-success">Success</button></a>
+            <form action="verify.php" method="post">
+              <input type="hidden"  name="gameid" value='<?php echo "$result1->game_id";?>'>
+
+           <button type="submit" name="appr" class="btn btn-success">Success</button></form>
             <br>        
             </div>
           </div>
@@ -148,7 +152,7 @@ $result1=mysqli_query($con,$query);
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+      <p class="m-0 text-center text-white">Copyright &copy; Gamer's Paradise</p>
     </div>
     <!-- /.container -->
   </footer>

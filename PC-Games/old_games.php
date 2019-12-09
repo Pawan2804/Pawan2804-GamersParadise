@@ -115,7 +115,7 @@
                 <div class="container"> 
                  <div class="card h-100">
                   <img class="card-img-top"
-                  <?php printf( "img src=../new_games/".$result1->image);?>> 
+                  <?php printf( "img src=../old_games/".$result1->image);?>> 
                 <div class="card-body">
                <h4 class="card-title">
                         

@@ -34,7 +34,13 @@
             <a class="nav-link" href="index.php">Main Page</a>
           </li>
            <li class="nav-item">
-            <a class="nav-link" href="PC-Games/new_games.php">Games</a>
+            <a class="nav-link" href="PC-Games/new_games.php">New Games</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="PC-Games/old_games.php">Old Games</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.php">Profile</a>
           </li>
         </ul>
       </div>
@@ -71,7 +77,12 @@
       </div>
     </div>
   </section>
-
+    <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Gamer's Paradise 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
         </body>
         </html>
 

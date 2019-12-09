@@ -115,6 +115,12 @@ $result=mysqli_query($con,$query);
 </div>
 <br>
 <br>
+<footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Gamer's Paradise 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
 <?php
 }
 }
